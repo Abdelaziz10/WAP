@@ -1,17 +1,54 @@
+
 body{
-    color: white;
-    background-color: rgb(29, 27, 27);
+	font-family: helvetica, arial, sans-serif;
+	background-color: #e9eaed;
+	color: #3b5998;
+	}
+h2{
+	color: blue;
+	font-size: 1.5em;
 }
-h1{ 
-    font-family: Georgia;
-    color: blue;
+em, strong{
+	color: green;
+	font-family: sans-serif;
 }
-h2{ 
-    font-family: Georgia;
-    color: blue;
+ul li span{
+	color: red;
+	font-style: italic;
+	font-weight: bold;
 }
-#mission {
-   
-    color: #000000;
-    }
-    
+
+ol{
+	display: flex;
+    flex-direction: column-reverse;
+}
+
+p:first-letter{
+	font-size: 1.5em;
+	color: red;
+}
+a:link{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+dt{
+	color: rgb(255, 167, 0);
+}
+dd{
+	font-style: italic;
+}
+
+figure{
+	float: left;
+}
+figcaption{
+	font-style: italic;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div, footer{
+	clear: both;
+}
