@@ -1,0 +1,128 @@
+body{
+	background-image: url('../img/background.png');
+	font-size: 8pt;
+	font-family: Verdana, Tahoma, "sans-serif";
+	margin: 0;
+	padding: 0;
+}
+.borderRadiusBottom{
+	border-radius: 0px 0px 15px 15px;
+}
+#banner{
+	display: block;
+	text-align: center;
+	background-image: url('../img/bannerbg.png');
+	height: 50px;
+	width: 100%;
+}
+h1{
+	text-align: center;
+	font-size:24pt;
+	font-weight: bold;
+	font-family: Tahoma, Verdana,"sans-serif";
+	text-shadow: 3px 3px #999999;
+}
+#content{
+	width: 800px;
+	margin: 0 auto;
+	border: 4px gray solid;
+	border-radius: 20px;
+}
+#contentLeft{
+	width: 550px;
+}
+#contentRight{
+	background-color:#A2B964;
+	width: 250px;
+	float: right;
+	top: 0;
+	display: block;
+	border-radius: 0 15px 0 0;
+}
+#contentRight #overview img{
+	border-radius: 0 15px 0 0;
+}
+#contentRight dl{
+	padding: 0 10px 0 10pt;
+}
+#contentRight dl dt{
+	font-weight: bold;
+	padding-top: 10pt;
+}
+#contentRight dt, #contentRight dd{
+	font-size: 8pt;
+	font-family: Arial, "sans-serif";
+}
+#contentRight dd ul{
+	padding: 0;
+}
+#contentRight ul li{
+	list-style: none;
+}
+#rottenImg{
+	background-image: url('../img/rbg.png');
+	height: 83px;
+	width: 100%;
+	font-size: 48pt;
+	color: red;
+	font-weight: bold;
+	border-radius: 15px 0 0 0;
+}
+#rottenImg img{
+	vertical-align: sub;
+	border-radius:15px 0 0 0;
+}
+
+#sectionLeft{
+	float: left;
+}
+#sectionRight{
+	float: right;
+}
+#sectionLeft, #sectionRight{
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+}
+#sectionLeft, #sectionRight{
+	position: relative;
+	width: 47%;
+}
+#sectionLeft p.review img, #sectionRight p.review img{
+	float: left;
+	margin-right: 5px;
+}
+#sectionLeft p.review, #sectionRight p.review{
+	font-size: 8pt;
+	font-weight: bold;
+	background-color: #E8DC9B;
+	border: 2px solid gray;
+	border-radius: 10px;
+	padding: 8px;
+	overflow: hidden;
+}
+#sectionLeft .reviewContainer, #sectionRight .reviewContainer{
+	margin-bottom: 20pt;
+}
+.reviewer .publication{
+	font-style: italic;
+}
+#sectionLeft p.reviewer, #sectionRight p.reviewer{
+	overflow: hidden;
+}
+#sectionLeft p.reviewer img, #sectionRight p.reviewer img{
+	float: left;
+	margin-right: 5px;
+}
+#bottomTitle{
+	clear: both;
+	text-align: center;
+	background-color: #A2B964;
+	padding: 5px;
+}
+.validatorTool {
+	float: right;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    opacity:  0.5;
+}
