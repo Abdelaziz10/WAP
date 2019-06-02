@@ -1,0 +1,16 @@
+#content{
+	border: 5px solid green;
+}
+#title{
+	border: 5px solid red;
+}
+.slogan{
+	border: 5px solid orange;
+}
+.journal{
+	border: 5px solid blue;
+}
+
+.date{
+	border: 5px solid purple;
+}
