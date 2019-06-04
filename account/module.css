@@ -1,0 +1,30 @@
+.common{
+			float: left;
+
+		}
+.entry1{
+			width:25%;
+			margin-right: 100px;
+			margin-left:20px;
+	
+		}
+.report{
+			width:40%;
+			margin-left: 20px;
+			
+		}
+#rep{
+			display: none;
+		}
+.superfix::after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+#v{
+	float: right;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	}			
