@@ -14,7 +14,7 @@
   <body>
   <h2>HTML Forms</h2>
 
-  <form action="/technicalsupport/support" method="post">
+  <form action="support" method="post">
     Name:<br>
     <input type="text" name="name" >
     <br>

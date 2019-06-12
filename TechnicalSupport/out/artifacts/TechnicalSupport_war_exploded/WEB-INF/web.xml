@@ -9,6 +9,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>mysupport</servlet-name>
-        <url-pattern>/support</url-pattern>
+        <url-pattern>/sup</url-pattern>
     </servlet-mapping>
 </web-app>
