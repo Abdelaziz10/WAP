@@ -1,7 +1,6 @@
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
     public class AuthFilter  implements Filter {
@@ -14,16 +13,17 @@ import java.io.IOException;
         public void doFilter(ServletRequest req, ServletResponse resp, FilterChain filterChain) throws IOException, ServletException {
            HttpServletRequest request=(HttpServletRequest)req;
            HttpServletResponse response=(HttpServletResponse) resp;
-           String username = req.getParameter("username");
-           HttpSession session=request.getSession();
+            if (request.getParameterMap().containsKey("username")) {
+                //String username = req.getParameter("username");
+                filterChain.doFilter(req, resp);
 
-           //String username=(String)session.getAttribute("username");
-           if(!(username.equals(null))){
-               filterChain.doFilter(req, resp);
-               //response.sendRedirect("/welcome");
+            }
+           else {
 
+//                RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+//                dispatcher.forward(req, resp);
+                ((HttpServletResponse) resp).sendRedirect("/");
            }
-           else response.sendRedirect("index.jsp");
         }
 
         @Override
