@@ -1,98 +1,151 @@
-"use strict"
+(function () {
+    "use strict";
 
-var animation = "";
-var setSpeed = 250;
-var timer = "";
-var originalText = " ";
-
-
-function start() {
-	document.getElementById("stopbutton").disabled = false;
-	document.getElementById("startbutton").disabled = true;
-	document.getElementById("animations").disabled = true;
+    
 	
-	startAnimation(document.getElementById("animations").value);
-
-
-}
-function stop(){
-	
-	clearInterval(timer);
-	document.getElementById("stopbutton").disabled = true;
-	document.getElementById("startbutton").disabled = false;
-	document.getElementById("animations").disabled = false;
-   document.getElementById("textarea").value = originalText;
-
-}
-
-function turbo(){
-    if(document.getElementById("turbo").checked == true ){ 
-    	setSpeed = 50; 
-    	 }
-    else{
-     setSpeed = 250; 
- }
-    setAnimationType(document.getElementById("animations").value);
-}
-
-
-function setSize(){
-
-   if(document.getElementById("setsize").selectedIndex == 0){	
-		document.getElementById("textarea").style.fontSize = "7pt"
-	    }else if(document.getElementById("setsize").selectedIndex == 1){
-		document.getElementById("textarea").style.fontSize = "10pt"
-		}else if(document.getElementById("setsize").selectedIndex == 2){
-		document.getElementById("textarea").style.fontSize = "12pt"
-		}else if(document.getElementById("setsize").selectedIndex == 3){
-		document.getElementById("textarea").style.fontSize = "16pt"
-		}else if(document.getElementById("setsize").selectedIndex == 4){
-		document.getElementById("textarea").style.fontSize = "24pt"
-		}else {
-		document.getElementById("textarea").style.fontSize = "32pt"
-		}
-	
-}
-
-function setAnimationType(){
-     setSize();
-     document.getElementById("stopbutton").disabled = false;
-     document.getElementById("startbutton").disabled = true;
-      document.getElementById("animations").disabled = true;
-    // clearInterval(timer);
-
-    originalText = document.getElementById("textarea").value;
-   
-   var selectedAnimetion  = document.getElementById("animations").selectedIndex;
-	if (selectedAnimetion == 0) {
-		document.getElementById("textarea").value = "";
-
-	}else if (selectedAnimetion == 1) {
+	 //declaration variables
+	  var timer = null;
+	  var index = 0;
+	  var turbo = 250;
+     var screenArray="";
 		
-		startAnimation("Exercise");
+		
+			function chosenAnimation(screenArray){
+		//document.getElementById("textArea").value=separatescreen[1];
+		
+		 //if (screenArray.length > 0) { 
+            document.getElementById("textArea").value = screenArray[index];
+       // }
+        index++;
+        if (index === screenArray.length) {
+            index = 0;
+        }
+		
 	}
-	else if (selectedAnimetion == 2) {
-		startAnimation("Juggler");
+	
+	
+	function start(){
+		var selection = document.getElementById("animType");		
+		var optionname = selection.options[selection.selectedIndex].text;
+		
+		
+		if (optionname === "Blank"){
+			screenArray="";
+		}
+				
+		else if (optionname === "CUSTOM"){
+			index=0;
+	
+			var CUSTOM ="  \\\n"+
+			"   --- o\n"+
+			"  /\n"+
+			"=====\n" +
+			"       /\n"+
+			" o ---\n"+
+			"       \\\n";
+		
+    		screenArray="";
+			screenArray =CUSTOM.split("=====");
+			clearInterval(timer);
+		
+			//if (timer === null) {
+            timer = setInterval(function () {
+               chosenAnimation(screenArray);
+            }, turbo);
+       // }
+				
+		}
+		
+		else if (optionname === "EXERCISE"){
+			index=0;
+			screenArray="";
+			screenArray =EXERCISE.split("=====");
+			clearInterval(timer);
+		
+			//if (timer === null) {
+            timer = setInterval(function () {
+               chosenAnimation(screenArray);
+            }, turbo);
+       // }
+				
+		}
+		
+		else if (optionname === "JUGGLER"){
+			index=0;
+			screenArray="";
+			screenArray =JUGGLER.split("=====");
+			clearInterval(timer);
+		
+			//if (timer === null) {
+            timer = setInterval(function () {
+               chosenAnimation(screenArray);
+            }, turbo);
+       // }
+				
+		}
+		
+		else if (optionname === "BIKE"){
+			index=0;
+			screenArray="";
+			screenArray =BIKE.split("=====");
+			clearInterval(timer);
+		
+			//if (timer === null) {
+            timer = setInterval(function () {
+               chosenAnimation(screenArray);
+            }, turbo);
+       // }
+				
+		}
+		
+		else if (optionname === "DIVE"){
+			index=0;
+			screenArray="";
+			screenArray =DIVE.split("=====");
+			clearInterval(timer);
+		
+			//if (timer === null) {
+            timer = setInterval(function () {
+               chosenAnimation(screenArray);
+            }, turbo);
+       // }
+				
+		}
+				
 	}
-	else if (selectedAnimetion == 3) {
-		startAnimation("Bike");
-	}
-	else if (selectedAnimetion == 4) {
-		startAnimation("Dive");
-	}
-	else  {
-		startAnimation("Custom");
-	}
-  
-}
 
-function startAnimation(animType){
-var str = ANIMATIONS[animType].split("=====\n");
-var x = 0;
-timer  = setInterval(function run(){
-document.getElementById("textarea").value = str[x++];
-if(x >= str.length){
-	x = 0;
-}},setSpeed);
+	function stop(){
+		clearInterval(timer);
+screenArray="";
+	}
+	
 
-}
+	
+	 function resize() {
+        var newSize =  document.getElementById("sizer").value;
+        document.getElementById("textArea").style.fontSize = newSize;
+    }
+	
+	function changeSpeed() {
+        var check = document.getElementById("turbo");
+        if (check.checked) {
+            turbo = 50;
+			start();			
+        } else {
+            turbo = 250; 
+			start();				
+        }
+    }
+	
+	window.onload = function () {
+        document.getElementById("start").onclick = start;
+        document.getElementById("stop").onclick = stop;
+        //document.getElementById("animType").onchange = chosenAnimation;
+        document.getElementById("turbo").onchange = changeSpeed;
+        //document.getElementById("stop").disabled = true;
+        document.getElementById("sizer").onchange = resize;
+    };
+
+})();
+
+
